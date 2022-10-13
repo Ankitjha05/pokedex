@@ -4,7 +4,7 @@ import Pokemonview from './Pokemonview';
 const Navbar = () => {
 
   const[pokemon, setpokemon]= useState();
-  const[url,setUrl] = useState('https://pokeapi.co/api/v2/ability/?limit=20&offset=20')
+  const[url,setUrl] = useState('https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0')
 
   const update=async()=>{
   let data = await fetch(url);
@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       Hi from Navbar
-      <Pokemonview pokemon={pokemon} url={url}/>
+      <Pokemonview pokemon={pokemon.results} url={url}/>
       <button name='next' onClick={handleclick}>Next</button>
       <button name='prev' onClick={handleclick}>Prev</button>
     </div>
